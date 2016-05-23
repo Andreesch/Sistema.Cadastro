@@ -137,7 +137,7 @@ public class Main extends JFrame implements ActionListener {
 						getContentPane().add(TrocarTela);
 						revalidate();
 						repaint();
-						EditarClientes();
+						AtualizarClientes();
 
 					} else {
 
@@ -355,7 +355,7 @@ public class Main extends JFrame implements ActionListener {
 
 	}
 
-	public void EditarClientes() {
+	public void AtualizarClientes() {
 
 		getContentPane().add(Limpar);
 		Limpar.setBounds(180, 433, 130, 33);
@@ -386,6 +386,7 @@ public class Main extends JFrame implements ActionListener {
 		JLabel LabelEndereco = new JLabel("ENDERE\u00C7O");
 		LabelEndereco.setBounds(355, 227, 81, 14);
 		getContentPane().add(LabelEndereco);
+		
 		final JFormattedTextField CampoTelefone_1 = new JFormattedTextField((setMascara(" (##)####-####")));
 		CampoTelefone_1.setToolTipText("");
 		CampoTelefone_1.setBounds(497, 267, 156, 20);
@@ -396,7 +397,6 @@ public class Main extends JFrame implements ActionListener {
 		CampoEmail.setBounds(187, 267, 217, 20);
 		getContentPane().add(CampoEmail);
 		CampoEmail.setColumns(10);
-
 		
 		int LinhaTabela = TabelaClientes.getSelectedRow();
 		final int EditarMatriz = (int) TabelaClientes.getModel().getValueAt(LinhaTabela, 0);
@@ -419,7 +419,6 @@ public class Main extends JFrame implements ActionListener {
 		CampoEndereco.setBounds(429, 224, 224, 20);
 		getContentPane().add(CampoEndereco);
 		CampoEndereco.setColumns(10);
-		//CampoEndereco.setText
 
 		JLabel LabelNome = new JLabel("NOME");
 		LabelNome.setBounds(233, 183, 40, 14);
@@ -429,10 +428,12 @@ public class Main extends JFrame implements ActionListener {
 		CampoNome.setBounds(283, 180, 370, 20);
 		getContentPane().add(CampoNome);
 		CampoNome.setColumns(10);
-
+		CampoNome.setText(DB[Integer.parseInt(CampoId.getText())-1][0]);
+		
 		JLabel LabelTelefone = new JLabel("TELEFONE");
 		LabelTelefone.setBounds(429, 270, 65, 14);
 		getContentPane().add(LabelTelefone);
+		
 		final JFormattedTextField CampoCpf_1 = new JFormattedTextField((setMascara(" ###.###.###-##")));
 		CampoCpf_1.setToolTipText("");
 		CampoCpf_1.setBounds(177, 224, 159, 20);
